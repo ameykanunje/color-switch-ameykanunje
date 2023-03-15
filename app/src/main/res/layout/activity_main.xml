@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,16 +14,17 @@
         android:id="@+id/firstLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/secondLayout">
 
         <com.example.color_shade.Border
             android:id="@+id/mainText"
             android:layout_width="180dp"
             android:layout_height="140dp"
             android:orientation="vertical"
-            tools:ignore="MissingClass" />
+            />
 
     </LinearLayout>
 
@@ -31,9 +32,10 @@
         android:id="@+id/secondLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/firstLayout"
+        app:layout_constraintBottom_toTopOf="@+id/third_layout">
 
         <LinearLayout
             android:id="@+id/secSwitch"
@@ -84,7 +86,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <SeekBar
                 android:id="@+id/redSeekbar"
                 android:layout_width="120dp"
@@ -128,7 +129,7 @@
             android:layout_marginLeft="60dp"
             android:orientation="vertical">
 
-            <TextView
+            <EditText
                 android:id="@+id/redTextNumber"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
@@ -136,30 +137,34 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/border"
                 android:text="0"
+                android:inputType="numberDecimal"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="19sp"
+                />
 
-            <TextView
+            <EditText
                 android:id="@+id/blueTextNumber"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:background="@drawable/border"
                 android:text="0"
+                android:inputType="numberDecimal"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textSize="19sp"
 
                 />
 
-            <TextView
+            <EditText
                 android:id="@+id/greenTextNumber"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/border"
+                android:inputType="numberDecimal"
                 android:text="0"
                 android:textAlignment="center"
-                android:textSize="20dp" />
+                android:textSize="21dp" />
 
         </LinearLayout>
 
@@ -167,11 +172,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/third_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/secondLayout"
+        app:layout_constraintBottom_toBottomOf="parent" >
 
 
         <Button
@@ -188,4 +195,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

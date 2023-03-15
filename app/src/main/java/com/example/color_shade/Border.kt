@@ -17,12 +17,12 @@ class Border(context: Context, attrs: AttributeSet) : TextView(context, attrs) {
     init {
         rectPaint.style = Paint.Style.STROKE
         rectPaint.color = Color.BLACK
-        rectPaint.strokeWidth = 10f
+        rectPaint.strokeWidth = 8f
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        val cornerRadius = 40f
+        val cornerRadius = 0f
         val rect = RectF(0f, 0f, width.toFloat(), height.toFloat())
         canvas?.drawRoundRect(rect, cornerRadius, cornerRadius, rectPaint)
 

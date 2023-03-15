@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,15 +14,17 @@
         android:id="@+id/firstLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/secondLayout"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.example.color_shade.Border
+        <TextView
             android:id="@+id/mainText"
-            android:layout_width="180dp"
+            android:layout_width="185dp"
             android:layout_height="140dp"
+            android:background="@drawable/border"
             android:orientation="vertical"
             tools:ignore="MissingClass" />
 
@@ -32,10 +34,11 @@
         android:id="@+id/secondLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/firstLayout"
+        app:layout_constraintBottom_toTopOf="@+id/third_layout">
 
         <LinearLayout
             android:id="@+id/secSwitch"
@@ -46,36 +49,36 @@
 
             <Switch
                 android:id="@+id/redSwitch"
-                android:checked="false"
-                android:thumb="@drawable/switch_thumb_red"
-                android:track="@drawable/switch_track_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                android:checked="false"
                 android:orientation="vertical"
+                android:thumb="@drawable/switch_thumb_red"
+                android:track="@drawable/switch_track_red"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <Switch
                 android:id="@+id/blueSwitch"
-                android:checked="false"
-                android:thumb="@drawable/switch_thumb_blue"
-                android:track="@drawable/switch_track_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="false"
                 android:orientation="vertical"
+                android:thumb="@drawable/switch_thumb_blue"
+                android:track="@drawable/switch_track_blue"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <Switch
                 android:id="@+id/greenSwitch"
-                android:checked="false"
-                android:thumb="@drawable/switch_thumb_green"
-                android:track="@drawable/switch_track_green"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:checked="false"
                 android:orientation="vertical"
+                android:thumb="@drawable/switch_thumb_green"
+                android:track="@drawable/switch_track_green"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </LinearLayout>
@@ -107,7 +110,7 @@
                 android:orientation="vertical"
                 android:progress="0"
                 android:progressTint="@color/blue"
-                android:thumbTint="@color/purple_500"/>
+                android:thumbTint="@color/purple_500" />
 
             <SeekBar
                 android:id="@+id/greenSeekbar"
@@ -118,7 +121,7 @@
                 android:orientation="vertical"
                 android:progress="0"
                 android:progressTint="@color/green"
-                android:thumbTint="@color/purple_500"/>
+                android:thumbTint="@color/purple_500" />
 
         </LinearLayout>
 
@@ -130,7 +133,7 @@
             android:layout_marginLeft="60dp"
             android:orientation="vertical">
 
-            <TextView
+            <EditText
                 android:id="@+id/redTextNumber"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
@@ -138,21 +141,23 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/border"
                 android:text="0"
+                android:inputType="numberDecimal"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/blueTextNumber"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
                 android:background="@drawable/border"
                 android:text="0"
+                android:inputType="numberDecimal"
                 android:textAlignment="center"
                 android:textSize="20sp"
 
                 />
 
-            <TextView
+            <EditText
                 android:id="@+id/greenTextNumber"
                 android:layout_width="55dp"
                 android:layout_height="30dp"
@@ -160,6 +165,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/border"
                 android:text="0"
+                android:inputType="numberDecimal"
                 android:textAlignment="center"
                 android:textSize="20dp" />
 
@@ -169,12 +175,14 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/third_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondLayout">
 
 
         <Button
@@ -191,4 +199,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
